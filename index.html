@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unite Group | Tuyển dụng</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Pro/Free -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -29,10 +28,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            perspective: 1200px; /* Cho hiệu ứng 3D sâu hơn */
+            perspective: 1200px;
         }
 
-        /* --- BACKGROUND --- */
         .cosmic-bg {
             position: fixed; inset: 0; z-index: -2;
             background: linear-gradient(135deg, #ffffff 0%, #eef2f6 100%);
@@ -51,11 +49,10 @@
             100% { transform: translate(30px, 20px) scale(1.05); }
         }
 
-        /* --- MAIN CARD --- */
         .card-wrapper {
             width: 90%; max-width: 420px;
             transform-style: preserve-3d;
-            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth hơn cho mobile */
+            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             z-index: 10;
         }
@@ -71,9 +68,11 @@
                 0 20px 40px -10px rgba(0, 0, 0, 0.1),
                 0 0 0 1px rgba(0, 0, 0, 0.02);
             transform-style: preserve-3d;
+            display: flex;
+            flex-direction: column;
+            max-height: 85vh; 
         }
 
-        /* --- LOGO STYLE --- */
         .logo-card {
             width: 130px; height: 130px;
             margin: 0 auto 20px;
@@ -89,6 +88,7 @@
             position: relative;
             z-index: 10;
             transform: translateZ(30px);
+            flex-shrink: 0;
         }
 
         .logo-card::before {
@@ -108,8 +108,7 @@
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
 
-        /* --- TEXT --- */
-        .text-content { text-align: center; transform: translateZ(20px); margin-bottom: 30px; }
+        .text-content { text-align: center; transform: translateZ(20px); margin-bottom: 20px; flex-shrink: 0; }
         
         h1 {
             font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 32px;
@@ -126,18 +125,33 @@
             letter-spacing: 1.2px; text-transform: uppercase;
         }
 
-        /* --- BUTTONS & GRADIENT ICONS --- */
+        /* Thanh công cụ nhỏ (Refresh + Note) */
+        .toolbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5px 10px;
+            font-size: 11px; color: #6b7280;
+            transform: translateZ(40px);
+        }
+        .refresh-btn {
+            background: none; border: none; cursor: pointer;
+            color: var(--primary); font-weight: 700;
+            display: flex; align-items: center; gap: 4px;
+            padding: 4px 8px; border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .refresh-btn:hover { background: rgba(0, 97, 242, 0.1); }
+        .refresh-btn:active { transform: scale(0.95); }
+
         .links-container {
             display: flex; flex-direction: column; gap: 14px;
             transform: translateZ(40px);
-            /* Scroll nếu màn hình quá bé */
-            max-height: 55vh; 
             overflow-y: auto;
-            padding: 5px; /* Để bóng không bị cắt */
+            padding: 5px;
+            flex-grow: 1; 
         }
         
-        /* Ẩn thanh cuộn cho đẹp */
-        .links-container::-webkit-scrollbar { width: 0px; background: transparent; }
+        .links-container::-webkit-scrollbar { width: 4px; }
+        .links-container::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 4px; }
 
         .cyber-btn {
             position: relative; display: flex; align-items: center;
@@ -157,7 +171,6 @@
             box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.15);
         }
 
-        /* Icon Box Styles */
         .icon-box {
             width: 44px; height: 44px;
             border-radius: 14px;
@@ -167,11 +180,11 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
 
-        /* Gradient Colors */
         .icon-sales { background: linear-gradient(135deg, #FF6B6B, #EE5D5D); }
         .icon-cskh { background: linear-gradient(135deg, #4FACFE, #00F2FE); }
         .icon-photo { background: linear-gradient(135deg, #FA709A, #FEE140); }
         .icon-bds  { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .icon-default { background: linear-gradient(135deg, #667eea, #764ba2); } 
 
         .btn-text { flex-grow: 1; text-align: left; }
         .btn-text h3 { font-size: 14px; font-weight: 800; margin-bottom: 3px; color: #1f2937; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -187,16 +200,23 @@
             background: var(--primary); color: white; transform: translateX(2px); 
         }
 
-        /* Canvas nền */
+        /* Error/Loading Message Styles */
+        .status-message {
+            text-align: center; font-size: 13px; font-weight: 500;
+            padding: 15px; border-radius: 12px;
+            margin-bottom: 10px; line-height: 1.5;
+        }
+        .status-loading { color: var(--primary); background: rgba(0, 97, 242, 0.05); }
+        .status-error { color: #dc2626; background: rgba(220, 38, 38, 0.05); border: 1px dashed #dc2626; }
+        .status-warning { color: #d97706; background: rgba(217, 119, 6, 0.05); border: 1px dashed #d97706; }
+
         canvas { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
 
-        /* Responsive */
         @media (max-height: 700px) {
             .logo-card { width: 100px; height: 100px; margin-bottom: 15px; }
             h1 { font-size: 28px; }
             .glass-interface { padding: 30px 20px; }
         }
-
     </style>
 </head>
 <body>
@@ -210,170 +230,256 @@
 
     <div class="card-wrapper" id="card">
         <div class="glass-interface">
-            
-            <!-- Logo -->
             <div class="logo-card">
                 <img src="https://techbytruong.wordpress.com/wp-content/uploads/2025/12/unite-group-gold-doc-png-1-e1767002671511.png" alt="Unite Group" class="logo-img">
             </div>
 
             <div class="text-content">
                 <h1>UNITE GROUP</h1>
-                <p class="subtitle">Next-Gen Career Platform</p>
+                <p class="subtitle">TUYỂN DỤNG CÁC VỊ TRÍ</p>
             </div>
 
-            <div class="links-container">
-                
-                <!-- 1. Sales -->
-                <a href="https://forms.gle/sdm97vQzab58GWyr6" class="cyber-btn" target="_blank">
-                    <div class="icon-box icon-sales"><i class="fa-solid fa-arrow-trend-up"></i></div>
-                    <div class="btn-text">
-                        <h3>CHUYÊN VIÊN TƯ VẤN</h3>
-                        <p>Thu nhập bứt phá - Thưởng không giới hạn</p>
-                    </div>
-                    <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
-                </a>
-
-                <!-- 2. CSKH -->
-                <a href="https://forms.gle/Y64a52bjZz5R9huB9" class="cyber-btn" target="_blank">
-                    <div class="icon-box icon-cskh"><i class="fa-solid fa-headset"></i></div>
-                    <div class="btn-text">
-                        <h3>CHĂM SÓC KHÁCH HÀNG</h3>
-                        <p>Giao tiếp tinh tế - Môi trường chuyên nghiệp</p>
-                    </div>
-                    <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
-                </a>
-
-                <!-- 3. Photo -->
-                <a href="https://forms.gle/4WXUdRKAFNPfzXs89" class="cyber-btn" target="_blank">
-                     <div class="icon-box icon-photo"><i class="fa-solid fa-camera-retro"></i></div>
-                    <div class="btn-text">
-                        <h3>NHÂN VIÊN CHỤP ẢNH CĂN HỘ PART-TIME</h3>
-                        <p>Sáng tạo hình ảnh - Bắt trọn cảm xúc</p>
-                    </div>
-                    <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
-                </a>
-
-                 <!-- 4. CTV BĐS -->
-                 <!-- Đã cập nhật link Google Form mới -->
-                 <a href="https://docs.google.com/forms/d/1xwNT1s5KS6r9z5grFLS38OyBFfs1B8zBeI-VucRQ0Ho/viewform" class="cyber-btn" target="_blank">
-                    <div class="icon-box icon-bds"><i class="fa-solid fa-city"></i></div>
-                   <div class="btn-text">
-                       <h3>CỘNG TÁC VIÊN TƯ VẤN NHÀ NGUYÊN CĂN & MẶT BẰNG</h3>
-                       <p>Kho hàng phong phú - Hoa hồng hấp dẫn</p>
-                   </div>
-                   <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
-               </a>
-
+            <!-- Toolbar mới -->
+            <div class="toolbar">
+                <span id="last-updated">Cập nhật: Vừa xong</span>
+                <button class="refresh-btn" onclick="initApp(true)">
+                    <i class="fa-solid fa-rotate"></i> Làm mới
+                </button>
             </div>
 
+            <div class="links-container" id="job-list">
+                <div class="status-message status-loading">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i><br>Đang tải dữ liệu...
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // --- 1. 3D TILT (MOUSE & GYROSCOPE) ---
+        // ==========================================
+        // CẤU HÌNH GOOGLE SHEETS
+        // ==========================================
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTleEWf1dxh3aXqcdlBiVdXWGZ6BrFObJnZNDj-SeTBu2QiHI2gqfrOx2fUN-wONkW9yw6weaDsJZTG/pub?gid=0&single=true&output=csv'; 
+
+        const fallbackJobs = [
+            { hienThi: "1", tieuDe: "CHUYÊN VIÊN TƯ VẤN (OFFLINE)", moTa: "Vui lòng kiểm tra kết nối mạng", link: "#", icon: "fa-solid fa-wifi", mau: "icon-sales" },
+        ];
+
+        const jobListContainer = document.getElementById('job-list');
+        const lastUpdatedText = document.getElementById('last-updated');
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+            lastUpdatedText.innerText = `Lần cuối: ${timeString}`;
+        }
+
+        function renderJobs(jobs) {
+            jobListContainer.innerHTML = ''; 
+            
+            if (!jobs || jobs.length === 0) {
+                 jobListContainer.innerHTML = `
+                    <div class="status-message status-warning">
+                        <i class="fa-solid fa-triangle-exclamation"></i><br>
+                        Đã kết nối nhưng Sheet trống.<br>
+                        Lưu ý: Google Sheet cần 3-5 phút để cập nhật ra web sau khi bạn sửa.
+                    </div>`;
+                 return;
+            }
+
+            let count = 0;
+            jobs.forEach(job => {
+                const hienThi = String(job.hienThi || "").trim();
+                if (hienThi !== "1") return;
+
+                count++;
+                const a = document.createElement('a');
+                a.href = job.link || "#";
+                a.className = 'cyber-btn';
+                a.target = '_blank';
+                
+                const colorClass = job.mau ? job.mau.trim() : 'icon-default';
+                const iconClass = job.icon ? job.icon.trim() : 'fa-solid fa-circle';
+
+                a.innerHTML = `
+                    <div class="icon-box ${colorClass}"><i class="${iconClass}"></i></div>
+                    <div class="btn-text">
+                        <h3>${job.tieuDe}</h3>
+                        <p>${job.moTa}</p>
+                    </div>
+                    <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                `;
+                jobListContainer.appendChild(a);
+            });
+
+            if (count === 0) {
+                jobListContainer.innerHTML = `
+                    <div class="status-message status-warning">
+                        Dữ liệu đã tải nhưng tất cả đang bị ẩn.<br>
+                        Hãy đợi 3-5 phút nếu bạn vừa sửa số 0 thành 1.
+                    </div>`;
+            }
+            updateTime();
+        }
+
+        function parseCSV(csvText) {
+            const lines = csvText.split(/\r\n|\n/);
+            const result = [];
+            const headers = [];
+            let headerLineIndex = -1;
+
+            for(let i=0; i<lines.length; i++) {
+                if(lines[i].trim().length > 0) {
+                    const cols = lines[i].split(',').map(c => c.trim().replace(/^"|"$/g, '').toLowerCase());
+                    if(cols.includes('hienthi') || cols.includes('tieude')) {
+                        headerLineIndex = i;
+                        cols.forEach((col, index) => { headers[col] = index; });
+                        break;
+                    }
+                }
+            }
+
+            if (headerLineIndex === -1) return [];
+
+            for (let i = headerLineIndex + 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const cols = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(val => {
+                    return val.trim().replace(/^"|"$/g, '').replace(/""/g, '"');
+                });
+
+                const getItem = (key, defaultIndex) => {
+                    if (headers[key] !== undefined && cols[headers[key]] !== undefined) return cols[headers[key]];
+                    return cols[defaultIndex] || "";
+                };
+
+                if (cols.length > 1) { 
+                    result.push({
+                        hienThi: getItem('hienthi', 0),
+                        tieuDe: getItem('tieude', 1),
+                        moTa: getItem('mota', 2),
+                        link: getItem('link', 3),
+                        icon: getItem('icon', 4),
+                        mau: getItem('mau', 5)
+                    });
+                }
+            }
+            return result;
+        }
+
+        async function initApp(isManualRefresh = false) {
+            // Hiển thị trạng thái đang tải nếu bấm nút làm mới
+            if (isManualRefresh) {
+                jobListContainer.innerHTML = '<div class="status-message status-loading"><i class="fa-solid fa-circle-notch fa-spin"></i><br>Đang làm mới...</div>';
+                const icon = document.querySelector('.refresh-btn i');
+                if(icon) icon.classList.add('fa-spin');
+            }
+
+            if (window.location.protocol === 'file:') {
+                jobListContainer.innerHTML = `<div class="status-message status-error">Lỗi: Vui lòng không mở trực tiếp file HTML.</div>`;
+                return;
+            }
+
+            if (SHEET_CSV_URL && SHEET_CSV_URL.includes('http')) {
+                try {
+                    // Cực mạnh tay với Cache: Thêm timestamp và header
+                    const bustCacheUrl = `${SHEET_CSV_URL}&nocache=${Date.now()}`;
+                    const response = await fetch(bustCacheUrl, { 
+                        cache: "no-store",
+                        headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' }
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    const text = await response.text();
+                    const sheetJobs = parseCSV(text);
+                    renderJobs(sheetJobs);
+
+                } catch (error) {
+                    console.error("Lỗi tải Sheet:", error);
+                    jobListContainer.innerHTML = `<div class="status-message status-error">Mất kết nối. Đang thử lại...</div>`;
+                    setTimeout(() => renderJobs(fallbackJobs), 3000);
+                } finally {
+                    // Tắt xoay icon làm mới
+                    const icon = document.querySelector('.refresh-btn i');
+                    if(icon) icon.classList.remove('fa-spin');
+                }
+            } else {
+                renderJobs(fallbackJobs);
+            }
+        }
+
+        initApp();
+
+        // --- 3D & PARTICLES ---
         const card = document.getElementById('card');
         const wrapper = document.body;
+        let centerBeta = null; let centerGamma = null;
 
-        // Biến lưu trạng thái gốc của điện thoại
-        let initialBeta = null;  // Trục X (nghiêng trước sau)
-        let initialGamma = null; // Trục Y (nghiêng trái phải)
-
-        // Mouse Move (Cho Desktop)
         wrapper.addEventListener('mousemove', (e) => {
             const x = (window.innerWidth / 2 - e.pageX) / 35;
             const y = (window.innerHeight / 2 - e.pageY) / 35;
             card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
         });
-        
         wrapper.addEventListener('mouseleave', () => {
             card.style.transform = `rotateY(0deg) rotateX(0deg)`;
         });
 
-        // Device Orientation (Cho Mobile) - Xử lý vị trí gốc thông minh
         if (window.DeviceOrientationEvent) {
             window.addEventListener('deviceorientation', (e) => {
-                // Nếu chưa có vị trí gốc, lưu vị trí hiện tại làm gốc
-                if (initialBeta === null || initialGamma === null) {
-                    initialBeta = e.beta;
-                    initialGamma = e.gamma;
-                    return; // Bỏ qua lần đầu để tránh giật
-                }
+                if (e.beta === null || e.gamma === null) return;
+                if (centerBeta === null) { centerBeta = e.beta; centerGamma = e.gamma; }
 
-                // Tính toán độ lệch so với vị trí gốc
-                let tiltX = e.beta - initialBeta;   // Nghiêng lên/xuống
-                let tiltY = e.gamma - initialGamma; // Nghiêng trái/phải
+                const smoothFactor = 0.03; 
+                centerBeta = centerBeta * (1 - smoothFactor) + e.beta * smoothFactor;
+                centerGamma = centerGamma * (1 - smoothFactor) + e.gamma * smoothFactor;
 
-                // Giới hạn góc nghiêng tối đa (Max 20 độ) để không bị lật ngược
+                let tiltX = e.beta - centerBeta; let tiltY = e.gamma - centerGamma;
                 const maxTilt = 20;
                 tiltX = Math.min(Math.max(tiltX, -maxTilt), maxTilt);
                 tiltY = Math.min(Math.max(tiltY, -maxTilt), maxTilt);
-
-                // Áp dụng transform (Đảo dấu nếu cần để cảm giác tự nhiên hơn)
-                // rotateY: xoay quanh trục dọc (nghiêng trái phải) -> dùng tiltY
-                // rotateX: xoay quanh trục ngang (nghiêng lên xuống) -> dùng tiltX
-                // Chia nhỏ giá trị (ví dụ /1.5) để hiệu ứng mượt mà, không quá gắt
                 card.style.transform = `rotateY(${tiltY}deg) rotateX(${-tiltX}deg)`;
             });
-            
-            // Tùy chọn: Reset vị trí gốc khi chạm vào màn hình (nếu người dùng đổi tư thế ngồi)
-            window.addEventListener('touchstart', () => {
-                initialBeta = null;
-                initialGamma = null;
-            }, {passive: true});
+            window.addEventListener('touchstart', () => { centerBeta = null; centerGamma = null; }, {passive: true});
         }
 
-
-        // --- 2. PARTICLES ---
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
         let particlesArray;
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 
         class Particle {
             constructor(x, y) {
                 this.x = x; this.y = y;
                 this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() * 0.5) - 0.25;
-                this.speedY = (Math.random() * 0.5) - 0.25;
+                this.speedX = (Math.random() * 0.5) - 0.25; this.speedY = (Math.random() * 0.5) - 0.25;
             }
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
+                this.x += this.speedX; this.y += this.speedY;
                 if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
                 if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
             }
             draw() {
-                ctx.fillStyle = '#94a3b8';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.fillStyle = '#94a3b8'; ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
             }
         }
-
         function init() {
             particlesArray = [];
             let numberOfParticles = (canvas.width * canvas.height) / 18000;
             for (let i = 0; i < numberOfParticles; i++) {
-                let x = Math.random() * canvas.width;
-                let y = Math.random() * canvas.height;
+                let x = Math.random() * canvas.width; let y = Math.random() * canvas.height;
                 particlesArray.push(new Particle(x, y));
             }
         }
-
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-                
-                // Nối dây
+                particlesArray[i].update(); particlesArray[i].draw();
                 for (let j = i; j < particlesArray.length; j++) {
                     const dx = particlesArray[i].x - particlesArray[j].x;
                     const dy = particlesArray[i].y - particlesArray[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-                    
                     if (distance < 110) {
                         ctx.beginPath();
                         ctx.strokeStyle = `rgba(148, 163, 184, ${0.25 - distance/440})`;
@@ -386,17 +492,8 @@
             }
             requestAnimationFrame(animate);
         }
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            init();
-        });
-
-        init();
-        animate();
-
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); });
+        init(); animate();
     </script>
 </body>
 </html>
-
