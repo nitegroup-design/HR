@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Unite Group | Ngày Hội Tuyển Dụng</title>
     
-    <!-- SỬ DỤNG FONT CHUẨN TIẾNG VIỆT (KHÔNG BỊ LỖI DẤU) -->
+    <!-- SỬ DỤNG FONT CHUẨN TIẾNG VIỆT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -42,39 +42,14 @@
 
         /* --- LIQUID MESH GRADIENT BACKGROUND --- */
         .liquid-bg {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            background: #fdfbfb;
-            overflow: hidden;
-            filter: blur(60px);
+            position: fixed; inset: 0; z-index: -2; background: #fdfbfb; overflow: hidden; filter: blur(60px);
         }
         .liquid-shape {
-            position: absolute;
-            opacity: 0.85;
-            animation: liquid-flow 15s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute; opacity: 0.85; animation: liquid-flow 15s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .shape-1 {
-            width: 55vw; height: 55vw;
-            background: #93c5fd; 
-            top: -10%; left: -10%;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            animation-delay: 0s;
-        }
-        .shape-2 {
-            width: 60vw; height: 60vw;
-            background: #fbcfe8; 
-            bottom: -15%; right: -10%;
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation-delay: -5s;
-        }
-        .shape-3 {
-            width: 45vw; height: 45vw;
-            background: #fde047; 
-            top: 40%; left: 30%;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation-delay: -10s;
-        }
+        .shape-1 { width: 55vw; height: 55vw; background: #93c5fd; top: -10%; left: -10%; border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; animation-delay: 0s; }
+        .shape-2 { width: 60vw; height: 60vw; background: #fbcfe8; bottom: -15%; right: -10%; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation-delay: -5s; }
+        .shape-3 { width: 45vw; height: 45vw; background: #fde047; top: 40%; left: 30%; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation-delay: -10s; }
 
         @keyframes liquid-flow {
             0% { transform: translate(0, 0) rotate(0deg) scale(1); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
@@ -89,60 +64,36 @@
 
         /* --- MAIN GLASS CONTAINER --- */
         .app-container {
-            width: 100%;
-            max-width: 480px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px) saturate(200%);
-            -webkit-backdrop-filter: blur(25px) saturate(200%);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
+            width: 100%; max-width: 480px; background: var(--glass-bg);
+            backdrop-filter: blur(25px) saturate(200%); -webkit-backdrop-filter: blur(25px) saturate(200%);
+            border: 1px solid var(--glass-border); border-radius: 30px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-            position: relative;
-            max-height: 95vh;
-            overflow-y: auto;
-            scroll-behavior: smooth;
+            position: relative; max-height: 95vh; overflow-y: auto; scroll-behavior: smooth;
         }
         .app-container::-webkit-scrollbar { width: 6px; }
         .app-container::-webkit-scrollbar-track { background: transparent; }
         .app-container::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 10px; }
 
         /* --- HEADER --- */
-        .header {
-            text-align: center;
-            padding: 35px 20px 15px;
-            position: relative;
-        }
+        .header { text-align: center; padding: 35px 20px 15px; position: relative; }
         .logo-wrapper {
-            display: inline-flex;
-            justify-content: center; align-items: center;
-            width: 90px; height: 90px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
+            display: inline-flex; justify-content: center; align-items: center; width: 90px; height: 90px;
+            border-radius: 50%; background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 10px 25px rgba(0,0,0,0.08), inset 0 2px 5px rgba(255,255,255,1);
-            margin-bottom: 15px;
-            border: 2px solid rgba(255,255,255,1);
+            margin-bottom: 15px; border: 2px solid rgba(255,255,255,1);
         }
         .logo-img { width: 70%; height: auto; object-fit: contain; }
         
         .header h1 { 
-            font-family: 'Montserrat', sans-serif;
-            font-size: 26px; 
-            font-weight: 900; 
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
+            font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 900; 
+            background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-transform: uppercase; letter-spacing: -0.5px;
         }
         .header p { font-size: 13px; color: var(--text-sub); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 4px;}
 
         /* --- PROGRESS BAR --- */
-        .progress-container {
-            display: flex; justify-content: center; padding: 10px 30px 0; gap: 8px;
-        }
-        .progress-dot {
-            height: 5px; flex-grow: 1; border-radius: 10px; background: rgba(0,0,0,0.08); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .progress-container { display: flex; justify-content: center; padding: 10px 30px 0; gap: 8px; }
+        .progress-dot { height: 5px; flex-grow: 1; border-radius: 10px; background: rgba(0,0,0,0.08); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .progress-dot.active { background: var(--primary-gradient); box-shadow: 0 0 10px rgba(0, 97, 242, 0.4); }
 
         /* --- WIZARD STEPS --- */
@@ -151,90 +102,55 @@
         .step.active { display: block; }
         @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
 
-        .step-title { 
-            font-size: 20px; font-weight: 800; margin-bottom: 20px; color: var(--text-main); text-align: center;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .step-title i { 
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-right: 10px; font-size: 24px; vertical-align: middle;
-        }
+        .step-title { font-size: 20px; font-weight: 800; margin-bottom: 20px; color: var(--text-main); text-align: center; font-family: 'Montserrat', sans-serif; }
+        .step-title i { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-right: 10px; font-size: 24px; vertical-align: middle; }
 
         /* --- FORM ELEMENTS --- */
         .form-group { margin-bottom: 18px; }
         .form-label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: #334155; }
         .form-control {
-            width: 100%; padding: 14px 16px; border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            background: var(--input-bg);
-            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6), 0 2px 5px rgba(0,0,0,0.03);
-            font-size: 15px; font-weight: 500; color: var(--text-main); transition: all 0.3s ease;
-            backdrop-filter: blur(12px);
+            width: 100%; padding: 14px 16px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.9);
+            background: var(--input-bg); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6), 0 2px 5px rgba(0,0,0,0.03);
+            font-size: 15px; font-weight: 500; color: var(--text-main); transition: all 0.3s ease; backdrop-filter: blur(12px);
         }
         .form-control::placeholder { color: #94a3b8; font-weight: 400;}
-        .form-control:focus { 
-            outline: none; 
-            border-color: #0061f2; 
-            background: rgba(255,255,255,0.9);
-            box-shadow: 0 0 0 4px rgba(0, 97, 242, 0.15), inset 0 2px 4px rgba(255, 255, 255, 0.9); 
-            transform: translateY(-2px);
-        }
+        .form-control:focus { outline: none; border-color: #0061f2; background: rgba(255,255,255,0.9); box-shadow: 0 0 0 4px rgba(0, 97, 242, 0.15), inset 0 2px 4px rgba(255, 255, 255, 0.9); transform: translateY(-2px); }
         select.form-control { appearance: none; font-weight: 500; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234b5563%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 15px top 50%; background-size: 10px auto; }
 
         /* --- MGM SECTION --- */
         .mgm-box {
-            position: relative;
-            background: linear-gradient(135deg, rgba(255, 237, 213, 0.7), rgba(254, 243, 199, 0.7));
-            border: 1px solid rgba(245, 158, 11, 0.4);
-            border-radius: 18px;
-            padding: 20px;
-            margin-top: 25px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.1);
+            position: relative; background: linear-gradient(135deg, rgba(255, 237, 213, 0.7), rgba(254, 243, 199, 0.7));
+            border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 18px; padding: 20px; margin-top: 25px; overflow: hidden; box-shadow: 0 8px 20px rgba(245, 158, 11, 0.1);
         }
         .mgm-box::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent);
-            transform: skewX(-20deg); animation: shine 3s infinite;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent); transform: skewX(-20deg); animation: shine 3s infinite;
         }
 
         /* --- RADIO CARDS --- */
         .radio-grid { display: grid; gap: 12px; }
         .radio-card {
             position: relative; border: 1px solid rgba(255,255,255,0.9); border-radius: 16px; padding: 16px;
-            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-            background: rgba(255,255,255,0.6); 
-            display: flex; align-items: flex-start; gap: 14px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            backdrop-filter: blur(12px);
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); background: rgba(255,255,255,0.6); 
+            display: flex; align-items: flex-start; gap: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); backdrop-filter: blur(12px);
         }
         .radio-card input { display: none; }
         .radio-card .icon-wrap { 
-            width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
-            background: linear-gradient(135deg, #f8fafc, #ffffff);
-            display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06); transition: 0.3s;
+            width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; background: linear-gradient(135deg, #f8fafc, #ffffff);
+            display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.06); transition: 0.3s;
         }
         .radio-card .icon { font-size: 20px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .radio-card .text h4 { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; color: #1e293b; }
         .radio-card .text p { font-size: 12px; color: #64748b; line-height: 1.4; font-weight: 500;}
-        
         .radio-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.9); box-shadow: 0 8px 15px rgba(0,0,0,0.05);}
-        .radio-card:has(input:checked) { 
-            border-color: #0061f2; 
-            background: rgba(255, 255, 255, 0.95); 
-            box-shadow: 0 10px 20px rgba(0, 97, 242, 0.15), inset 0 0 0 1px #0061f2; 
-        }
+        .radio-card:has(input:checked) { border-color: #0061f2; background: rgba(255, 255, 255, 0.95); box-shadow: 0 10px 20px rgba(0, 97, 242, 0.15), inset 0 0 0 1px #0061f2; }
         .radio-card:has(input:checked) .icon-wrap { background: var(--primary-gradient); box-shadow: 0 4px 12px rgba(0, 97, 242, 0.3); }
         .radio-card:has(input:checked) .icon { -webkit-text-fill-color: white; }
 
         /* --- FILE UPLOAD --- */
         .file-upload {
             border: 2px dashed rgba(148, 163, 184, 0.6); border-radius: 20px; padding: 35px 20px;
-            text-align: center; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease;
-            position: relative; overflow: hidden; backdrop-filter: blur(5px);
+            text-align: center; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; backdrop-filter: blur(5px);
         }
         .file-upload:hover { border-color: #0061f2; background: rgba(239, 246, 255, 0.7); box-shadow: 0 10px 20px rgba(0, 97, 242, 0.08); }
         .file-upload i { font-size: 38px; color: #94a3b8; margin-bottom: 12px; transition: 0.3s; }
@@ -244,85 +160,39 @@
         .file-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 2; }
         .preview-img { max-width: 100%; height: auto; border-radius: 12px; margin-top: 15px; display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.15); position: relative; z-index: 3;}
 
-        /* --- WHEEL OF FORTUNE --- */
-        .wheel-container {
-            position: relative; width: 280px; height: 280px; margin: 35px auto;
-        }
-        .wheel-container::before {
-            content: ''; position: absolute; inset: -20px; border-radius: 50%;
-            background: var(--primary-gradient); filter: blur(35px); opacity: 0.5; z-index: -1;
-            animation: pulse-glow 3s infinite alternate;
-        }
-        @keyframes pulse-glow { 0% { opacity: 0.3; transform: scale(0.95); } 100% { opacity: 0.6; transform: scale(1.05); } }
-        
-        .wheel-canvas {
-            width: 100%; height: 100%; border-radius: 50%;
-            border: 6px solid #fff; box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-            /* SỬA LỖI VÒNG QUAY XOAY NGƯỢC: Dùng ease-out mượt mà, không giật lại */
-            transition: transform 5s cubic-bezier(0.15, 0.85, 0.15, 1);
-            transform: rotate(0deg);
-        }
-        .wheel-pointer {
-            position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
-            width: 0; height: 0; border-left: 24px solid transparent; border-right: 24px solid transparent;
-            border-top: 42px solid #ff007f; z-index: 10; filter: drop-shadow(0 5px 8px rgba(0,0,0,0.4));
-        }
-        .wheel-center-btn {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 80px; height: 80px; border-radius: 50%; background: #fff;
-            border: 5px solid #0061f2; display: flex; justify-content: center; align-items: center;
-            font-weight: 900; font-family: 'Montserrat', sans-serif; color: #0061f2; text-transform: uppercase; font-size: 17px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3); cursor: pointer; transition: 0.2s; z-index: 5;
-        }
-        .wheel-center-btn:active { transform: translate(-50%, -50%) scale(0.9); }
-        .wheel-center-btn:disabled { background: #f8fafc; border-color: #cbd5e1; color: #94a3b8; cursor: not-allowed; box-shadow: none;}
-
         /* --- BUTTONS --- */
         .btn-group { display: flex; gap: 12px; margin-top: 30px; }
         .btn {
-            flex: 1; padding: 16px; border-radius: 16px; font-size: 15px; font-weight: 700;
-            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; border: none; outline: none;
-            display: flex; justify-content: center; align-items: center; gap: 10px;
-            font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.5px;
+            flex: 1; padding: 16px; border-radius: 16px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; border: none; outline: none; display: flex; justify-content: center; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.5px;
         }
         .btn-prev { background: rgba(255,255,255,0.8); color: #475569; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 4px 10px rgba(0,0,0,0.02);}
         .btn-prev:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
         
         .btn-next, .btn-submit { 
-            background: var(--primary-gradient); color: white; 
-            box-shadow: 0 10px 20px -5px rgba(0, 97, 242, 0.5); 
-            position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.2);
+            background: var(--primary-gradient); color: white; box-shadow: 0 10px 20px -5px rgba(0, 97, 242, 0.5); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.2);
         }
         .btn-next::after, .btn-submit::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.35), transparent);
-            transform: skewX(-20deg);
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.35), transparent); transform: skewX(-20deg);
         }
         .btn-next:hover::after, .btn-submit:hover::after { animation: shine 1.5s ease-out; }
         .btn-next:hover, .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 30px -5px rgba(0, 97, 242, 0.6); }
 
         .btn-fanpage { 
-            background: #1877F2; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; 
-            width: 100%; text-decoration: none; margin-bottom: 20px; border-radius: 16px; padding: 16px; font-weight: 800;
-            font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 14px;
-            box-shadow: 0 8px 20px rgba(24, 119, 242, 0.35); transition: 0.3s;
+            background: #1877F2; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-decoration: none; margin-bottom: 20px; border-radius: 16px; padding: 16px; font-weight: 800; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 14px; box-shadow: 0 8px 20px rgba(24, 119, 242, 0.35); transition: 0.3s;
         }
         .btn-fanpage:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(24, 119, 242, 0.45); }
         
-        /* --- SUCCESS STEP --- */
+        /* --- SUCCESS STEP & TICKETS --- */
         .success-box { text-align: center; padding: 10px 0; animation: fadeInScale 0.6s ease-out; }
         @keyframes fadeInScale { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
         
         .icon-success-wrap {
-            width: 85px; height: 85px; border-radius: 50%;
-            background: linear-gradient(135deg, #10b981, #059669);
+            width: 85px; height: 85px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669);
             display: flex; justify-content: center; align-items: center; margin: 0 auto 20px;
-            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4), inset 0 4px 10px rgba(255,255,255,0.4);
-            position: relative;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4), inset 0 4px 10px rgba(255,255,255,0.4); position: relative;
         }
         .icon-success-wrap::after {
-            content: ''; position: absolute; inset: -8px; border-radius: 50%;
-            border: 2px dashed rgba(16, 185, 129, 0.5); animation: spinSlow 10s linear infinite;
+            content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 2px dashed rgba(16, 185, 129, 0.5); animation: spinSlow 10s linear infinite;
         }
         @keyframes spinSlow { 100% { transform: rotate(360deg); } }
         .icon-success-wrap i { font-size: 40px; color: #fff; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
@@ -330,86 +200,42 @@
         .success-box h2 { font-size: 28px; color: #0f172a; margin-bottom: 8px; font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: -0.5px;}
         .success-box > p { font-size: 14px; color: #475569; margin-bottom: 30px; line-height: 1.6; font-weight: 500;}
         
-        /* SỬA LỖI MẤT CHỮ TRONG THẺ QUÀ TẶNG */
+        /* THẺ QUÀ TẶNG/VÉ */
         .prize-ticket {
-            position: relative; background: rgba(255, 255, 255, 0.65);
-            border: 1px solid rgba(255, 255, 255, 1); border-radius: 24px;
-            padding: 35px 20px 25px; margin-bottom: 30px; margin-top: 15px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06), inset 0 0 0 2px rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(20px); 
-            /* Bỏ overflow: hidden ở đây để badge không bị cắt */
+            position: relative; background: rgba(255, 255, 255, 0.65); border: 1px solid rgba(255, 255, 255, 1); border-radius: 24px;
+            padding: 35px 20px 25px; margin-bottom: 30px; margin-top: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.06), inset 0 0 0 2px rgba(255, 255, 255, 0.5); backdrop-filter: blur(20px); 
         }
-
-        /* Tạo lớp riêng để chứa hiệu ứng ánh sáng (không làm cắt chữ) */
         .ticket-shine {
             position: absolute; inset: 0; border-radius: 24px; overflow: hidden; pointer-events: none; z-index: 0;
         }
         .ticket-shine::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent);
-            transform: skewX(-25deg); animation: shineTicket 4s infinite;
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent); transform: skewX(-25deg); animation: shineTicket 4s infinite;
         }
         @keyframes shineTicket { 0%, 20% { left: -100%; } 80%, 100% { left: 200%; } }
         
         .prize-ticket .ticket-badge {
-            position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
-            background: var(--primary-gradient); color: #fff; font-size: 11px; font-weight: 800;
-            padding: 6px 18px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(0, 97, 242, 0.3); white-space: nowrap; z-index: 2;
+            position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: var(--primary-gradient); color: #fff; font-size: 12px; font-weight: 800; padding: 6px 18px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0, 97, 242, 0.3); white-space: nowrap; z-index: 2;
         }
         
         .prize-ticket h1 { 
-            position: relative; z-index: 2; /* Luôn nổi lên trên ánh sáng */
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-family: 'Montserrat', sans-serif; font-size: 38px; font-weight: 900;
-            text-transform: uppercase; margin: 10px 0 0; filter: drop-shadow(0 4px 8px rgba(239, 68, 68, 0.2));
-            line-height: 1.1;
+            position: relative; z-index: 2; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 900; text-transform: uppercase; margin: 10px 0 0; line-height: 1.3;
         }
 
         /* --- PROOF DISPLAY --- */
-        .proof-section {
-            background: rgba(255, 255, 255, 0.45); border-radius: 20px;
-            padding: 20px; border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.03);
-            backdrop-filter: blur(10px);
-        }
-        .proof-title { 
-            font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800; color: #334155; 
-            margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; 
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-        }
+        .proof-section { background: rgba(255, 255, 255, 0.45); border-radius: 20px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: inset 0 2px 10px rgba(0,0,0,0.03); backdrop-filter: blur(10px); }
+        .proof-title { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800; color: #334155; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .proof-images { display: flex; gap: 20px; justify-content: center; }
         .proof-img-wrapper { flex: 1; max-width: 45%; position: relative; }
-        .proof-img-wrapper img {
-            width: 100%; height: 130px; object-fit: cover; border-radius: 12px;
-            border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: #fff; cursor: pointer;
-        }
+        .proof-img-wrapper img { width: 100%; height: 130px; object-fit: cover; border-radius: 12px; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: #fff; cursor: pointer; }
         .proof-img-wrapper:nth-child(1) img { transform: rotate(-4deg); }
         .proof-img-wrapper:nth-child(2) img { transform: rotate(4deg); }
-        
-        .proof-img-wrapper img:active, .proof-img-wrapper img:hover { 
-            transform: scale(1.6) rotate(0deg); z-index: 20; position: relative; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.25); border-color: #f8fafc;
-        }
-        .proof-img-wrapper p { 
-            font-size: 12px; color: #0f172a; font-weight: 700; margin-top: 12px; 
-            background: rgba(255,255,255,0.85); padding: 5px 10px; border-radius: 8px; 
-            display: inline-block; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+        .proof-img-wrapper img:active, .proof-img-wrapper img:hover { transform: scale(1.6) rotate(0deg); z-index: 20; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.25); border-color: #f8fafc; }
+        .proof-img-wrapper p { font-size: 12px; color: #0f172a; font-weight: 700; margin-top: 12px; background: rgba(255,255,255,0.85); padding: 5px 10px; border-radius: 8px; display: inline-block; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
-        .loading-overlay {
-            position: absolute; inset: 0; background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); z-index: 100;
-            display: none; flex-direction: column; justify-content: center; align-items: center; border-radius: 30px;
-        }
+        .loading-overlay { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); z-index: 100; display: none; flex-direction: column; justify-content: center; align-items: center; border-radius: 30px; }
         .loading-overlay.active { display: flex; }
-        .spinner { 
-            border: 4px solid rgba(0, 97, 242, 0.2); border-top: 4px solid #0061f2; 
-            border-radius: 50%; width: 50px; height: 50px; animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite; 
-            margin-bottom: 20px; 
-        }
+        .spinner { border: 4px solid rgba(0, 97, 242, 0.2); border-top: 4px solid #0061f2; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite; margin-bottom: 20px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
         .hashtag-hl { background: #f1f5f9; padding: 4px 8px; border-radius: 6px; color: #e11d48; font-family: monospace; font-size: 13px; border: 1px solid #e2e8f0; user-select: all;}
@@ -439,9 +265,9 @@
             <p>Ngày hội sinh viên TDT</p>
         </div>
 
+        <!-- Cập nhật lại Progress Bar chỉ còn 3 bước thao tác -->
         <div class="progress-container" id="progressBar">
             <div class="progress-dot active"></div>
-            <div class="progress-dot"></div>
             <div class="progress-dot"></div>
             <div class="progress-dot"></div>
         </div>
@@ -529,7 +355,7 @@
                     <!-- MGM: MEMBER GET MEMBER -->
                     <div class="mgm-box">
                         <label class="form-label" style="color: #b45309; font-size: 15px; margin-bottom: 6px;"><i class="fa-solid fa-user-plus"></i> CÙNG BẠN ĐI LÀM - NHẬN 500K</label>
-                        <p style="font-size: 13px; color: #92400e; margin-bottom: 12px; line-height: 1.5; font-weight: 500;">Nhập SĐT đứa bạn thân muốn rủ đi làm cùng, nếu bạn đó pass phỏng vấn, Unite Group tặng ngay <strong style="color: #e11d48; background: #fee2e2; padding: 2px 6px; border-radius: 4px;">500.000đ</strong> cho bạn!</p>
+                        <p style="font-size: 13px; color: #92400e; margin-bottom: 12px; line-height: 1.5; font-weight: 500;">Nhập SĐT đứa bạn thân muốn rủ đi làm cùng, nếu bạn đó pass phỏng vấn, Unite Group tặng ngay <strong style="color: #e11d48; background: #fee2e2; padding: 2px 6px; border-radius: 4px;"> voucher 500k khi thuê trọ tại Unite</strong> cho bạn !</p>
                         <input type="tel" class="form-control" id="mgmPhone" placeholder="SĐT bạn bè (Không bắt buộc)" maxlength="10" style="background: rgba(255,255,255,0.9); border-color: rgba(245, 158, 11, 0.5);">
                     </div>
 
@@ -541,7 +367,7 @@
                 <!-- STEP 2: LIKE FANPAGE -->
                 <div class="step" id="step2">
                     <h2 class="step-title"><i class="fa-brands fa-facebook"></i>Xác Thực Tương Tác</h2>
-                    <p style="text-align: center; font-size: 14px; margin-bottom: 25px; color: var(--text-sub); line-height: 1.6; font-weight: 500;">Để kích hoạt vòng quay may mắn, bạn hãy Like Fanpage và tải ảnh chụp màn hình lên nhé!</p>
+                    <p style="text-align: center; font-size: 14px; margin-bottom: 25px; color: var(--text-sub); line-height: 1.6; font-weight: 500;">Để đủ điều kiện nhận quà Minigame, bạn hãy Like Fanpage và tải ảnh chụp màn hình lên nhé!</p>
 
                     <a href="https://www.facebook.com/unitegroup.com.vn" target="_blank" class="btn btn-fanpage">
                         <i class="fa-brands fa-facebook-f" style="font-size: 20px;"></i> Đi tới Fanpage Unite Group
@@ -564,10 +390,10 @@
                     </div>
                 </div>
 
-                <!-- STEP 3: KỊCH BẢN CHECK-IN -->
+                <!-- STEP 3: LỰA CHỌN THAM GIA GAME/NHẬN QUÀ -->
                 <div class="step" id="step3">
-                    <h2 class="step-title"><i class="fa-solid fa-camera"></i>Hình Thức Nhận Quà</h2>
-                    <p style="text-align: center; font-size: 14px; margin-bottom: 20px; color: var(--text-sub); line-height: 1.6; font-weight: 500;">Tham gia Check-in để mở khóa <strong style="color: #e11d48;">Vòng Quay VIP</strong> với tỷ lệ trúng quà LỚN cực cao!</p>
+                    <h2 class="step-title"><i class="fa-solid fa-gamepad"></i>Đổi Quà Gian Hàng</h2>
+                    <p style="text-align: center; font-size: 14px; margin-bottom: 20px; color: var(--text-sub); line-height: 1.6; font-weight: 500;">Tham gia Check-in để mở khóa <strong style="color: #e11d48;">VÉ VIP</strong> nhận thẳng quà lớn không cần phụ thuộc kết quả chơi game!</p>
 
                     <div class="form-group">
                         <div class="radio-grid">
@@ -575,16 +401,16 @@
                                 <input type="radio" name="eventAction" value="Checkin" onchange="toggleActionView()" required>
                                 <div class="icon-wrap" style="background: linear-gradient(135deg, #fee2e2, #fff);"><i class="fa-solid fa-crown icon" style="background: linear-gradient(135deg, #e11d48, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i></div>
                                 <div class="text">
-                                    <h4>A. Đã Check-in tại quầy</h4>
-                                    <p>Chụp ảnh tại gian hàng, đăng công khai kèm Hashtag để quay VIP.</p>
+                                    <h4>A. Đã Check-in (VÉ VIP)</h4>
+                                    <p>Chụp ảnh tại gian hàng, đăng công khai kèm Hashtag để được <strong style="color: #e11d48;">100% nhận Quà Lớn</strong> (Bất kể thắng/thua minigame).</p>
                                 </div>
                             </label>
                             <label class="radio-card">
                                 <input type="radio" name="eventAction" value="Game" onchange="toggleActionView()">
-                                <div class="icon-wrap"><i class="fa-solid fa-bolt icon"></i></div>
+                                <div class="icon-wrap"><i class="fa-solid fa-ticket icon"></i></div>
                                 <div class="text">
-                                    <h4>B. Chỉ Quay Thưởng Web</h4>
-                                    <p>Bỏ qua check-in, đi thẳng tới vòng quay Tiêu Chuẩn.</p>
+                                    <h4>B. Chưa Check-in (VÉ THƯỜNG)</h4>
+                                    <p>Chỉ tham gia chơi Minigame tại quầy. Thắng = Nhận Quà Lớn, Thua = Nhận Quà Nhỏ.</p>
                                 </div>
                             </label>
                         </div>
@@ -608,46 +434,25 @@
 
                     <div class="btn-group">
                         <button type="button" class="btn btn-prev" onclick="prevStep(3)"><i class="fa-solid fa-arrow-left"></i> Trở lại</button>
-                        <button type="button" class="btn btn-next" onclick="nextStep(3)"><i class="fa-solid fa-dharmachakra"></i> Vào Vòng Quay</button>
+                        <button type="button" class="btn btn-submit" onclick="submitStep3()"><i class="fa-solid fa-paper-plane"></i> Gửi & Nhận Vé</button>
                     </div>
                 </div>
 
-                <!-- STEP 4: LUCKY WHEEL (VÒNG QUAY MAY MẮN) -->
+                <!-- STEP 4: THÀNH CÔNG (HIỂN THỊ VÉ ĐỂ CHƠI TẠI QUẦY) -->
                 <div class="step" id="step4">
-                    <h2 class="step-title"><i class="fa-solid fa-gift"></i>Vòng Quay May Mắn</h2>
-                    <div style="background: rgba(255,255,255,0.7); padding: 10px; border-radius: 12px; text-align: center; margin-bottom: 15px; border: 1px solid rgba(255,255,255,1); box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                        <p style="font-size: 17px; font-weight: 900; font-family: 'Montserrat', sans-serif;" id="wheelTypeTitle">VÒNG QUAY TIÊU CHUẨN</p>
-                    </div>
-                    <p style="text-align: center; font-size: 14px; color: var(--text-sub); font-weight: 500;">Nhấn nút QUAY TRUNG TÂM để xem phần quà bạn nhận được nhé!</p>
-                    
-                    <div class="wheel-container">
-                        <div class="wheel-pointer"></div>
-                        <canvas id="wheelCanvas" class="wheel-canvas" width="400" height="400"></canvas>
-                        <button type="button" class="wheel-center-btn" id="spinBtn" onclick="spinWheel()">QUAY</button>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-prev" id="btnBackWheel" onclick="prevStep(4)"><i class="fa-solid fa-pen-to-square"></i> Đổi hình thức tham gia</button>
-                    </div>
-                </div>
-
-                <!-- STEP 5: THÀNH CÔNG -->
-                <div class="step" id="step5">
                     <div class="success-box">
                         <div class="icon-success-wrap">
                             <i class="fa-solid fa-check"></i>
                         </div>
-                        <h2>Tuyệt Vời!</h2>
-                        <p>Thông tin của bạn đã được lưu trữ an toàn. Hãy đưa màn hình này cho nhân viên HR để nhận thưởng ngay nhé!</p>
+                        <h2>Lưu Thông Tin Thành Công!</h2>
+                        <p>Hãy đưa ngay màn hình này cho nhân sự Unite tại quầy để đổi quà nhé!</p>
                         
-                        <!-- CẤU TRÚC THẺ QUÀ TẶNG MỚI KHÔNG BỊ CẮT CHỮ -->
+                        <!-- CẤU TRÚC THẺ QUÀ TẶNG/VÉ -->
                         <div class="prize-ticket">
-                            <!-- Lớp chứa ánh sáng chạy ngang -->
                             <div class="ticket-shine"></div>
-                            
-                            <!-- Nội dung quà luôn nằm trên -->
-                            <div class="ticket-badge"><i class="fa-solid fa-gift"></i> Phần Quà Của Bạn</div>
-                            <h1 id="finalPrizeText">BÌNH NƯỚC</h1>
+                            <div class="ticket-badge" id="ticketBadgeTitle"><i class="fa-solid fa-ticket-simple"></i> Xác Nhận Hạng Vé</div>
+                            <h1 id="finalPrizeText" style="filter: none;">VÉ VIP</h1>
+                            <p id="finalTicketDesc" style="font-weight: 700; color: #334155; margin-top: 8px; font-size: 15px;">100% NHẬN QUÀ LỚN</p>
                         </div>
 
                         <!-- Khu vực hiển thị bằng chứng cho HR -->
@@ -680,19 +485,16 @@
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw24dl9PiNIj3-4JvDWiG4Rjkte1fG7xpFz4qpr_1xoEfAOw8m7S_pVRiv8esDDNvKQ/exec'; 
 
         let currentStep = 1;
-        const totalSteps = 4;
 
         let base64Fanpage = "";
         let base64Checkin = "";
         let hashFanpage = "";
         let hashCheckin = "";
-        let finalPrizeWon = "Chưa quay";
-        let activePrizes = []; 
         let usedHashes = []; 
 
         const vnPhoneRegex = /^(03|05|07|08|09)[0-9]{8}$/;
 
-        // --- TÍNH NĂNG CHỐNG GIAN LẬN ẢNH ---
+        // Lấy danh sách hash đã sử dụng để chống gian lận
         fetch(GOOGLE_SCRIPT_URL + '?action=getHashes&nocache=' + new Date().getTime(), {
             method: 'GET',
             redirect: 'follow'
@@ -722,18 +524,17 @@
         function updateProgress() {
             const dots = document.querySelectorAll('.progress-dot');
             dots.forEach((dot, index) => {
-                if (index < currentStep && index < 4) dot.classList.add('active');
+                if (index < currentStep && index < 3) dot.classList.add('active');
                 else dot.classList.remove('active');
             });
-            if(currentStep === 5) document.getElementById('progressBar').style.display = 'none';
+            // Ẩn thanh progress bar ở màn hình cuối (Bước 4)
+            if(currentStep === 4) document.getElementById('progressBar').style.display = 'none';
         }
 
         function showStep(step) {
             document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
             document.getElementById(`step${step}`).classList.add('active');
             updateProgress();
-            
-            if(step === 4) drawWheel();
         }
 
         function nextStep(step) {
@@ -770,34 +571,6 @@
                 if (!base64Fanpage) {
                     Swal.fire({ icon: 'warning', title: 'Thiếu ảnh', text: 'Vui lòng tải ảnh bằng chứng Like Fanpage!', confirmButtonColor: '#0061f2' });
                     return;
-                }
-            }
-
-            // Validate Step 3
-            if (step === 3) {
-                const action = document.querySelector('input[name="eventAction"]:checked');
-                if (!action) {
-                    Swal.fire({ icon: 'warning', title: 'Thiếu thông tin', text: 'Vui lòng chọn Hình thức tham gia!', confirmButtonColor: '#0061f2' });
-                    return;
-                }
-                if (action.value === 'Checkin' && !base64Checkin) {
-                    Swal.fire({ icon: 'warning', title: 'Thiếu ảnh', text: 'Vui lòng tải ảnh bài viết Check-in!', confirmButtonColor: '#0061f2' });
-                    return;
-                }
-                
-                if (action.value === 'Checkin') {
-                    activePrizes = prizesVIP;
-                    document.getElementById('wheelTypeTitle').innerText = "👑 VÒNG QUAY VIP (ĐÃ CHECK-IN)";
-                    document.getElementById('wheelTypeTitle').style.color = "#e11d48";
-                    document.getElementById('wheelTypeTitle').style.background = "linear-gradient(to right, #f43f5e, #f59e0b)";
-                    document.getElementById('wheelTypeTitle').style.webkitBackgroundClip = "text";
-                    document.getElementById('wheelTypeTitle').style.webkitTextFillColor = "transparent";
-                } else {
-                    activePrizes = prizesStandard;
-                    document.getElementById('wheelTypeTitle').innerText = "⭐ VÒNG QUAY TIÊU CHUẨN";
-                    document.getElementById('wheelTypeTitle').style.background = "var(--primary-gradient)";
-                    document.getElementById('wheelTypeTitle').style.webkitBackgroundClip = "text";
-                    document.getElementById('wheelTypeTitle').style.webkitTextFillColor = "transparent";
                 }
             }
 
@@ -871,104 +644,30 @@
         }
 
         // ==========================================
-        // LOGIC VÒNG QUAY MAY MẮN
+        // KIỂM TRA BƯỚC 3 VÀ GỬI FORM LÊN GOOGLE SHEET
         // ==========================================
-        const prizesVIP = [
-            { text: "VOUCHER 500K", color: "#f43f5e" }, 
-            { text: "GẤU BÔNG", color: "#10b981" },     
-            { text: "VOUCHER 200K", color: "#d946ef" }, 
-            { text: "BÌNH NƯỚC", color: "#f59e0b" },    
-            { text: "SỔ TAY", color: "#0061f2" },       
-            { text: "MÓC KHÓA", color: "#8b5cf6" }      
-        ];
-
-        const prizesStandard = [
-            { text: "SỔ TAY", color: "#0061f2" },       
-            { text: "BÚT BI", color: "#10b981" },       
-            { text: "MÓC KHÓA", color: "#8b5cf6" },     
-            { text: "VOUCHER 50K", color: "#f59e0b" },  
-            { text: "KẸO NGỌT", color: "#f43f5e" },     
-            { text: "STICKER", color: "#d946ef" }       
-        ];
-        
-        let currentRotation = 0;
-
-        function drawWheel() {
-            const canvas = document.getElementById('wheelCanvas');
-            const ctx = canvas.getContext('2d');
-            const cw = canvas.width;
-            const ch = canvas.height;
-            const cx = cw / 2;
-            const cy = ch / 2;
-            const radius = cw / 2;
-            const arc = 2 * Math.PI / activePrizes.length;
-
-            ctx.clearRect(0, 0, cw, ch);
-            
-            for (let i = 0; i < activePrizes.length; i++) {
-                const angle = i * arc;
-                ctx.beginPath();
-                ctx.fillStyle = activePrizes[i].color;
-                ctx.moveTo(cx, cy);
-                ctx.arc(cx, cy, radius, angle, angle + arc, false);
-                ctx.lineTo(cx, cy);
-                ctx.fill();
-                
-                ctx.save();
-                ctx.translate(cx, cy);
-                ctx.rotate(angle + arc / 2);
-                ctx.textAlign = "right";
-                ctx.fillStyle = "#fff";
-                ctx.font = "bold 24px 'Montserrat', sans-serif";
-                ctx.shadowColor = "rgba(0,0,0,0.4)";
-                ctx.shadowBlur = 6;
-                ctx.fillText(activePrizes[i].text, radius - 25, 8);
-                ctx.restore();
+        function submitStep3() {
+            const actionElement = document.querySelector('input[name="eventAction"]:checked');
+            if (!actionElement) {
+                Swal.fire({ icon: 'warning', title: 'Thiếu thông tin', text: 'Vui lòng chọn Hình thức tham gia!', confirmButtonColor: '#0061f2' });
+                return;
             }
+            const actionChoice = actionElement.value;
+
+            if (actionChoice === 'Checkin' && !base64Checkin) {
+                Swal.fire({ icon: 'warning', title: 'Thiếu ảnh', text: 'Vui lòng tải ảnh bài viết Check-in để nhận Vé VIP!', confirmButtonColor: '#0061f2' });
+                return;
+            }
+
+            // Tiến hành lưu Form
+            submitForm(actionChoice);
         }
 
-        function spinWheel() {
-            const spinBtn = document.getElementById('spinBtn');
-            const btnBack = document.getElementById('btnBackWheel');
-            spinBtn.disabled = true; 
-            btnBack.style.display = 'none'; 
-
-            const randomDegree = Math.floor(Math.random() * 360);
-            const totalSpins = 5 * 360; 
-            currentRotation += totalSpins + randomDegree;
-            
-            const canvas = document.getElementById('wheelCanvas');
-            canvas.style.transform = `rotate(${currentRotation}deg)`;
-
-            const normalizedRotation = currentRotation % 360;
-            const arrowAngle = (360 - normalizedRotation + 270) % 360;
-            const prizeIndex = Math.floor(arrowAngle / (360 / activePrizes.length));
-            finalPrizeWon = activePrizes[prizeIndex].text;
-
-            // Chờ CSS transition quay xong (5 giây) thì bật thông báo
-            setTimeout(() => {
-                document.getElementById('finalPrizeText').innerText = finalPrizeWon;
-                Swal.fire({
-                    title: 'CHÚC MỪNG BẠN!',
-                    text: `Bạn đã quay trúng: ${finalPrizeWon}`,
-                    icon: 'success',
-                    confirmButtonText: 'Nhận Quà & Hoàn Tất',
-                    confirmButtonColor: '#0061f2',
-                    allowOutsideClick: false,
-                    backdrop: `rgba(15, 23, 42, 0.85)`
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        submitForm(); 
-                    }
-                });
-            }, 5200);
-        }
-
-        // ==========================================
-        // GỬI DỮ LIỆU LÊN GOOGLE SHEET
-        // ==========================================
-        function submitForm() {
+        function submitForm(actionChoice) {
             const timestamp = new Date().toLocaleString('vi-VN');
+            
+            // Xác định Hạng vé gửi lên Google Sheet
+            let ticketType = actionChoice === 'Checkin' ? 'VÉ VIP' : 'VÉ THƯỜNG';
 
             const dataPayload = {
                 timestamp: timestamp,
@@ -979,8 +678,9 @@
                 district: document.getElementById('district').value,
                 need: document.querySelector('input[name="need"]:checked').value,
                 mgmPhone: document.getElementById('mgmPhone').value || "Không có", 
-                actionChoice: document.querySelector('input[name="eventAction"]:checked').value,
-                prizeWon: finalPrizeWon, 
+                actionChoice: actionChoice,
+                // Thay vì gửi prizeWon từ vòng quay cũ, ta gửi Hạng Vé
+                ticketType: ticketType, 
                 imgFanpage: base64Fanpage,
                 imgCheckin: base64Checkin || "Không có",
                 hashFanpage: hashFanpage, 
@@ -998,6 +698,33 @@
             .then(() => {
                 document.getElementById('loadingOverlay').classList.remove('active');
                 
+                // HIỂN THỊ UI DỰA THEO LOẠI VÉ
+                const ticketTitle = document.getElementById('finalPrizeText');
+                const ticketDesc = document.getElementById('finalTicketDesc');
+                const ticketBadge = document.getElementById('ticketBadgeTitle');
+
+                if(actionChoice === 'Checkin') {
+                    // VIP
+                    ticketTitle.innerText = "VÉ VIP";
+                    ticketTitle.style.background = "linear-gradient(135deg, #e11d48, #f59e0b)";
+                    ticketTitle.style.webkitBackgroundClip = "text";
+                    
+                    ticketDesc.innerText = "⭐ BẠN SẼ ĐƯỢC CHỌN 1 QUÀ LỚN ⭐\n(Chơi game cho vui, thắng hay thua vẫn có quà xịn)";
+                    ticketDesc.style.color = "#b45309";
+                    
+                    ticketBadge.style.background = "linear-gradient(135deg, #e11d48, #f59e0b)";
+                } else {
+                    // TIÊU CHUẨN
+                    ticketTitle.innerText = "VÉ THAM GIA";
+                    ticketTitle.style.background = "var(--primary-gradient)";
+                    ticketTitle.style.webkitBackgroundClip = "text";
+                    
+                    ticketDesc.innerText = "🎲 THAM GIA MINIGAME TẠI QUẦY 🎲\n(Chiến thắng = Quà Lớn, Thất bại = Quà Nhỏ)";
+                    ticketDesc.style.color = "#0061f2";
+                    
+                    ticketBadge.style.background = "var(--primary-gradient)";
+                }
+
                 const proofSection = document.getElementById('finalProofSection');
                 let hasProof = false;
                 
@@ -1017,12 +744,12 @@
                     proofSection.style.display = 'block';
                 }
 
-                currentStep = 5;
-                showStep(5);
+                currentStep = 4;
+                showStep(4);
             })
             .catch(error => {
                 document.getElementById('loadingOverlay').classList.remove('active');
-                Swal.fire({ icon: 'error', title: 'Lỗi Mạng', text: 'Không thể gửi dữ liệu, hãy thử lại hoặc báo với nhân viên tại quầy!', confirmButtonColor: '#0061f2' });
+                Swal.fire({ icon: 'error', title: 'Lỗi Mạng', text: 'Không thể gửi dữ liệu, hãy kiểm tra kết nối mạng và thử lại!', confirmButtonColor: '#0061f2' });
             });
         }
     </script>
