@@ -295,20 +295,6 @@
             border-radius: 50%;
         }
 
-        /* --- REFERRAL SECTION --- */
-        .referral-box {
-            background: #F8FAFC;
-            border: 1px dashed #CBD5E1;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-
-        .referral-box .form-label { margin-bottom: 4px; color: var(--primary); display: flex; align-items: center; gap: 8px;}
-        .referral-box .form-label i { color: var(--accent); }
-        .referral-box p { font-size: 12px; color: var(--text-sub); margin-bottom: 12px; }
-
         /* --- FILE UPLOAD --- */
         .file-upload-wrapper {
             border: 2px dashed #CBD5E1;
@@ -373,6 +359,7 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
+            margin-top: 25px;
         }
 
         .btn-submit:hover {
@@ -647,14 +634,6 @@
                     </div>
                 </div>
 
-                <!-- Referral Section - Professional Style -->
-                <div class="referral-box">
-                    <label class="form-label"><i class="fa-solid fa-gift"></i> Người giới thiệu (Không bắt buộc)</label>
-                    <p>Nhập SĐT của bạn bè giới thiệu. Cả hai sẽ nhận ngay <strong>Voucher 500.000 VNĐ</strong> khi đăng ký dịch vụ tại hệ thống Unite Group.</p>
-                    <input type="tel" class="form-control" id="mgmPhone" placeholder="SĐT người giới thiệu" maxlength="10">
-                    <div class="error-msg" id="mgmPhoneError"><i class="fa-solid fa-circle-exclamation"></i> SĐT người giới thiệu không hợp lệ.</div>
-                </div>
-
                 <button type="submit" class="btn-submit">Hoàn tất Gửi hồ sơ <i class="fa-solid fa-arrow-right"></i></button>
             </form>
         </div>
@@ -685,7 +664,7 @@
     </div>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwXLU-nJmXrPaHzFv4II--WcuvYJbsp9VeKORUwd3MJie2-oHbOklQ-yqP3N72afTWp/exec'; 
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvRhONBd94UCMWBle8wSZukpYFO2h9FwlBaOYDd1__tjcEfDaGh6VhrJaUBz2k9FCn_Q/exec'; 
         const vnPhoneRegex = /^(03|05|07|08|09)[0-9]{8}$/;
 
         let cvBase64 = "";
@@ -698,7 +677,6 @@
                 return;
             }
             
-            // Giới hạn file 3MB để không bị lỗi khi gửi lên Google Script
             if (file.size > 3 * 1024 * 1024) {
                 Swal.fire({ icon: 'warning', title: 'File quá lớn', text: 'Vui lòng tải lên CV có dung lượng dưới 3MB.', confirmButtonColor: '#0A192F' });
                 input.value = "";
@@ -707,12 +685,10 @@
                 return;
             }
 
-            // Hiển thị tên file cho ứng viên biết
             const nameDisplay = document.getElementById('fileNameDisplay');
             nameDisplay.innerHTML = `<i class="fa-solid fa-file-circle-check"></i> Đã đính kèm: ${file.name}`;
             nameDisplay.style.display = 'block';
 
-            // Mã hóa file sang Base64 để gửi qua API
             const reader = new FileReader();
             reader.onload = function(e) {
                 cvBase64 = e.target.result;
@@ -721,18 +697,15 @@
         }
 
         function submitForm(e) {
-            e.preventDefault(); // Ngăn trang reload
+            e.preventDefault(); 
 
             const name = document.getElementById('fullName').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
-            const mgmPhone = document.getElementById('mgmPhone').value.trim();
             const phoneError = document.getElementById('phoneError');
-            const mgmPhoneError = document.getElementById('mgmPhoneError');
             
             let isValid = true;
 
-            // Validate số điện thoại chính
             if (!vnPhoneRegex.test(phone)) {
                 phoneError.style.display = 'block';
                 document.getElementById('phone').style.borderColor = 'var(--error)';
@@ -742,22 +715,10 @@
                 document.getElementById('phone').style.borderColor = 'var(--border-color)';
             }
 
-            // Validate số điện thoại giới thiệu (nếu có nhập)
-            if (mgmPhone !== "" && !vnPhoneRegex.test(mgmPhone)) {
-                mgmPhoneError.style.display = 'block';
-                document.getElementById('mgmPhone').style.borderColor = 'var(--error)';
-                isValid = false;
-            } else {
-                mgmPhoneError.style.display = 'none';
-                document.getElementById('mgmPhone').style.borderColor = 'var(--border-color)';
-            }
-
             if (!isValid) return;
 
-            // Xử lý gửi dữ liệu
             const timestamp = new Date().toLocaleString('vi-VN');
             
-            // Payload tối giản - Đã thêm email, position, cvData
             const dataPayload = {
                 timestamp: timestamp,
                 fullName: name,
@@ -768,30 +729,37 @@
                 district: document.getElementById('district').value,
                 position: document.getElementById('position').value,
                 need: document.querySelector('input[name="need"]:checked').value,
-                mgmPhone: mgmPhone || "Không có", 
-                cvData: cvBase64 || "Không tải CV",
-                actionChoice: "Điền Form Đăng Ký",
-                ticketType: "Hồ Sơ Tiêu Chuẩn", 
-                imgFanpage: "",
-                imgCheckin: "",
-                hashFanpage: "", 
-                hashCheckin: "" 
+                cvData: cvBase64 || "Không tải CV"
             };
 
             document.getElementById('loadingOverlay').classList.add('active');
 
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
+                // BỎ mode: 'no-cors' đi để trình duyệt có thể đọc được lỗi thật sự từ server
+                headers: { 
+                    'Content-Type': 'text/plain;charset=utf-8' 
+                },
                 body: JSON.stringify(dataPayload)
             })
-            .then(() => {
+            .then(response => response.json()) // Yêu cầu đọc response trả về từ Google
+            .then(data => {
                 document.getElementById('loadingOverlay').classList.remove('active');
                 
-                // Hiển thị màn hình thành công
-                document.getElementById('formPanel').style.display = 'none';
-                document.getElementById('successScreen').style.display = 'flex';
+                // Nếu server trả về kết quả Thành Công
+                if (data.result === 'success') {
+                    document.getElementById('formPanel').style.display = 'none';
+                    document.getElementById('successScreen').style.display = 'flex';
+                } 
+                // Nếu server báo Lỗi (Ví dụ không tìm thấy Sheet)
+                else {
+                    Swal.fire({ 
+                        icon: 'error', 
+                        title: 'Lỗi Lưu Dữ Liệu', 
+                        text: 'Lỗi từ Google: ' + (data.error || 'Vui lòng kiểm tra lại cấu hình Code.gs'), 
+                        confirmButtonColor: '#0A192F' 
+                    });
+                }
             })
             .catch(error => {
                 document.getElementById('loadingOverlay').classList.remove('active');
